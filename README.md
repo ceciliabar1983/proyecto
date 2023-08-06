@@ -64,7 +64,7 @@ Explicacion de cada uno de los scripts:
 Creacion del Dockerfile.
 
 Una vez generado el contenido ejecutamos el siguiente comando:
-sudo docker build -t tpentorno /home/ceciliabaronio/ProyectoEntorno
+sudo docker build -t tpentorno /home/ceciliabaronio/ProyectoEntorno o bien sudo docker build -t tpentorno .
 Verificamos que se haya creado la imagen con el comando docker images , se creo una imagen con el nombre tpentorno con la ID b44b5005cf16
 Corremos el contenedor:
 sudo docker run -it -v /home/ceciliabaronio/:/ProyectoEntorno tpentorno
