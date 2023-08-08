@@ -23,6 +23,5 @@ fi
 
 
 
-#Elimino el archivo imagenes.zip
-rm imagenes.zip
+
 
