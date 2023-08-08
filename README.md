@@ -47,7 +47,7 @@ Explicacion de cada uno de los scripts:
    Primero verificamos que exista el archivo imagenes.zip; si es asi verificamos si existe la carpeta imagenes_descomprimidas si es asi la eliminamos y la 
    volvemos a crear.
    Luego descomprimos cada foto incluida en imagenes.zip y la guardamos en imagenes_descomprimidas.
-   Posteriormente elimino el archivo imagenes.zip
+   
    
 5) procesar.sh
    Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas
