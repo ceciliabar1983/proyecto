@@ -7,7 +7,7 @@ VOLUME /home/ceciliabaronio/ProyectoEntorno
 
 RUN apt-get update && apt-get install -y git wget zip imagemagick file
 
-#Agregamos los scripts y la carpeta resultado
+#Agregamos los scripts 
 
 ADD menu.sh /home/ceciliabaronio/ProyectoEntorno/menu.sh
 ADD generar.sh /home/ceciliabaronio/ProyectoEntorno/generar.sh
