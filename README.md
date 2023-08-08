@@ -52,8 +52,7 @@ Explicacion de cada uno de los scripts:
 5) procesar.sh
    Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas
    Luego si existe la carpeta imagenes_descomprimidas, procede a iterar sobre los archivos que se encuentran en el directorio, tomando solo el nombre del archivo sin su ruta ni extension(jpg).
-   Verifica que el tipo de archivo sea una imagen, y  procede a procesar las imagenes con nombres validos, es decir que empiecen con mayuscula sigan con minuscula o guion bajo?
-   
+   Verifica que el tipo de archivo sea una imagen, y  procede a procesar las imagenes con nombres validos, es decir :  que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada  de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
 6) comprimir.sh
    
    Genera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
