@@ -14,7 +14,6 @@ if [ -d imagenes_descomprimidas ]; then
             # Verificar si el nombre es válido
 	    if [[ $nombre_persona =~ ^[[:upper:]][[:lower:]_]+$ ]]; then
 
-           # if [[ $nombre_persona =~ ^[[:upper:]][[:lower:]]+$ ]]; then
                 # Recortar la imagen y guardarla en "imagenes_procesadas"
                 convert "$archivo" -resize 512x512 "imagenes_procesadas/${nombre_persona}_recortada.jpg"
                 echo "Se ha procesado la imagen ${nombre_persona}_recortada.jpg"
