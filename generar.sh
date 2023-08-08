@@ -24,7 +24,7 @@ nombres_imagenes=() # para almacenar los nombres de las imagenes generadas
 
 # Generar imágenes
 for ((i=1; i<=cant_imagenes; i++)); do
-   # nombre_imagen=$(sort -R "nombres.csv" |tail -n 1 | cut -d "," -f 1 | cut -d " " -f 1 )
+  
     nombre_imagen=$(sort -R "nombres.csv" | tail -n 1 | cut -d "," -f 1 | tr ' ' '_')
     wget -O "./imagenes/$nombre_imagen.jpg" "https://thispersondoesnotexist.com"
     nombres_imagenes+=("./imagenes/$nombre_imagen.jpg") # Agregar el nombre a la matriz
