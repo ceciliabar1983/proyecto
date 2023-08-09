@@ -30,7 +30,7 @@ Explicacion de cada uno de los scripts:
    6°) Comprime las imagenes contenidas en la carpeta imagenes
    7°) Genera la suma de verificacion de imagenes.zip.
    
- 3) descargar.sh
+ 2) descargar.sh
   
     Primeramente se pasan dos argumentos uno correspondiente a la url que contiene las imagenes comprimidas y otra a la suma de verificacion.
     Para generar la url, cargue los archivos en github, y modifique las url para que me descargue el archivo subido y no el contenido de la url. Por ejemplo:
@@ -42,24 +42,30 @@ Explicacion de cada uno de los scripts:
     no el nombre del archivo; por lo cual para generar la suma de verificacion de imagenes.zip debemos eliminar el espacio y tomar la primera columna.
     4°) Se realiza la comparacion de dichas sumas de verificacion
     
-4) descomprimir.sh
+3) descomprimir.sh
    
    Primero verificamos que exista el archivo imagenes.zip; si es asi verificamos si existe la carpeta imagenes_descomprimidas si es asi la eliminamos y la 
    volvemos a crear.
    Luego descomprimos cada foto incluida en imagenes.zip y la guardamos en imagenes_descomprimidas.
    
    
-5) procesar.sh
+4) procesar.sh
    Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas
    Luego si existe la carpeta imagenes_descomprimidas, procede a iterar sobre los archivos que se encuentran en el directorio, tomando solo el nombre del archivo sin su ruta ni extension(jpg).
    Verifica que el tipo de archivo sea una imagen, y  procede a procesar las imagenes con nombres validos, es decir :  que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada  de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
+5) miniaturas.sh
+   Verifico que el archivo imagenes.zip exista y la descomprimo en imagenes_descomprimidas_con_miniatura
+   Creo la carpeta imagenes_procesadas_con_miniatura, la elimino si existe y la vuelvo a generar.
+   Modifico el tamaño de las imagenes que se encuentran en la carpeta imagenes_descomprimidas_con_miniatura al tamaño 48 x 48 y las guardo con el nombre de la imagen agregandole el texto con miniatura y la extension jpg en la carpeta imagenes_procesadas_con_miniaturas
+   Vuelvo a comprimir el contenido de la carpeta imagenes_procesadas_con_miniaturas
+   
 6) comprimir.sh
    
    Genera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
    Genera un archivo con los nombres validos de las imagenes procesadas, que comiencen en mayuscula y sigan en minuscula
    Genera un archivo con los nombres de las imagenes procesadas que terminen en a
    Crea un archivo comprimido con los archivos generados anteriormente eliminando lo que se comprimio.
-7) Un menu con los scripts anteriores
+ 7) Un menu con los scripts anteriores
 
 Creacion del Dockerfile.
 
