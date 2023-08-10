@@ -22,8 +22,8 @@ Este script de permite generar imágenes aleatorias descargadas de "https://this
 4) Descarga la lista de nombres de "https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/main/dict.csv" 
 5) Se generan nombres aleatorios a partir del archivo nombres.csv, descargando las imágenes de "https://thispersondoesnotexist.com" utilizando esos nombres y almacenandolos en la carpeta ./imagenes. 
 Espera un intervalo de 2 segundos entre la descarga de una imagen y la siguiente. Por ej en la lista aparece Aaron Ariel, 126. Una vez seleccionado aleatoriamente el nombre elimina la coma y toma todo el nombre completo, luego reemplaza el espacio por guion bajo.
-6°) Comprime las imagenes contenidas en la carpeta imagenes
-7°) Genera la suma de verificacion de imagenes.zip.
+6) Comprime las imagenes contenidas en la carpeta imagenes
+7) Genera la suma de verificacion de imagenes.zip.
 
 descargar.sh
 
