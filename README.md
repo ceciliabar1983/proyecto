@@ -2,7 +2,7 @@
 
 Baronio Cecilia Florencia
 
-Descripcion 
+## Descripcion 
 El objetivo del trabajo práctico es diseñar y escribir un programa para procesar un lote de imágenes. Este programa consta de cuatro partes principales:
 
 En primer lugar, para obtener un conjunto de imágenes se debe poder elegir entre generar el conjunto descargando las imágenes individualmente o descargarlas desde un servicio web con su suma de verificación, verificando la misma.
@@ -10,9 +10,9 @@ Se presentará una opción para descomprimir un archivo con imágenes.
 Luego se debe aplicar una transformación solamente a las imágenes de personas.
 Finalmente se debe generar un archivo comprimido con las imágenes procesadas y algunos datos extra.
 
-Explicacion de cada uno de los scripts:
+### Explicacion de cada uno de los scripts:
 
-generar.sh
+#### generar.sh
 
 Este script de permite generar imágenes aleatorias descargadas de "https://thispersondoesnotexist.com/"
 
@@ -25,39 +25,39 @@ Espera un intervalo de 2 segundos entre la descarga de una imagen y la siguiente
 6) Comprime las imagenes contenidas en la carpeta imagenes
 7) Genera la suma de verificacion de imagenes.zip.
 
-descargar.sh
+#### descargar.sh
 
-Primeramente se pasan dos argumentos uno correspondiente a la url que contiene las imagenes comprimidas y otra a la suma de verificacion. Para generar la url, cargue los archivos en github, y modifique las url para que me descargue el archivo subido y no el contenido de la url. Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imagenes.zip
-				  https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/suma_verificacion.txt 
-1°) Verifica que se ingresen dos argumentos 
-2°) Elimina los archivos imagenes.zip y suma_verificacion.txt 
-3°) Descarga el contenido de las url pasadas como argumentos: el archivo suma_verificacion.txt contiene solo el hash SHA-256 del archivo imagenes.zip y no el nombre del archivo; por lo cual para generar la suma de verificacion de imagenes.zip debemos eliminar el espacio y tomar la primera columna. 
-4°) Se realiza la comparacion de dichas sumas de verificacion
+Primeramente se pasan dos argumentos uno correspondiente a la url que contiene las imagenes comprimidas y otra a la suma de verificacion. Para generar la url, cargue los archivos en github, y modifique las url para que me descargue el archivo subido y no el contenido de la url.
+Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imagenes.zip  https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/suma_verificacion.txt 
+1) Verifica que se ingresen dos argumentos 
+2) Elimina los archivos imagenes.zip y suma_verificacion.txt 
+3) Descarga el contenido de las url pasadas como argumentos: el archivo suma_verificacion.txt contiene solo el hash SHA-256 del archivo imagenes.zip y no el nombre del archivo; por lo cual para generar la suma de verificacion de imagenes.zip debemos eliminar el espacio y tomar la primera columna. 
+4) Se realiza la comparacion de dichas sumas de verificacion
 
-descomprimir.sh
+#### descomprimir.sh
 
-Primero verificamos que exista el archivo imagenes.zip; si es asi verificamos si existe la carpeta imagenes_descomprimidas si es asi la eliminamos y la volvemos a crear. 
-Luego descomprimos cada foto incluida en imagenes.zip y la guardamos en imagenes_descomprimidas.
+1) Verificamos que exista el archivo imagenes.zip; si es asi verificamos si existe la carpeta imagenes_descomprimidas si es asi la eliminamos y la volvemos a crear. 
+2) Descomprimos cada foto incluida en imagenes.zip y la guardamos en imagenes_descomprimidas.
 
-procesar.sh 
+#### procesar.sh 
 Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas 
 Luego si existe la carpeta imagenes_descomprimidas, procede a iterar sobre los archivos que se encuentran en el directorio, tomando solo el nombre del archivo sin su ruta ni extension(jpg). 
 Verifica que el tipo de archivo sea una imagen, y procede a procesar las imagenes con nombres validos, es decir : que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
 
-miniaturas.sh
- Verifico que el archivo imagenes.zip exista y la descomprimo en imagenes_descomprimidas_con_miniatura.
- Creo la carpeta imagenes_procesadas_con_miniatura, la elimino si existe y la vuelvo a generar. 
- Modifico el tamaño de las imagenes que se encuentran en la carpeta imagenes_descomprimidas_con_miniatura al tamaño 48 x 48 y las guardo con el nombre de la imagen agregandole el texto con miniatura y la extension jpg en la carpeta imagenes_procesadas_con_miniaturas 
- Vuelvo a comprimir el contenido de la carpeta imagenes_procesadas_con_miniaturas
+#### miniaturas.sh
+1. Verifico que el archivo imagenes.zip exista y la descomprimo en imagenes_descomprimidas_con_miniatura.
+2. Creo la carpeta imagenes_procesadas_con_miniatura, la elimino si existe y la vuelvo a generar. 
+3. Modifico el tamaño de las imagenes que se encuentran en la carpeta imagenes_descomprimidas_con_miniatura al tamaño 48 x 48 y las guardo con el nombre de la imagen agregandole el texto con miniatura y la extension jpg en la carpeta imagenes_procesadas_con_miniaturas 
+4. Vuelvo a comprimir el contenido de la carpeta imagenes_procesadas_con_miniaturas
 
-comprimir.sh
+#### comprimir.sh
 
 Genera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
 Genera un archivo con los nombres validos de las imagenes procesadas, que comiencen en mayuscula y sigan en minuscula
 Genera un archivo con los nombres de las imagenes procesadas que terminen en a 
 Crea un archivo comprimido con los archivos generados anteriormente eliminando lo que se comprimio.
 
-Un menu con los scripts anteriores:
+#### Un menu con los scripts anteriores:
 En el menu se ofrecen las opciones para poder ejecutar cada uno de los scripts:
 1. Generar
 2. Descargar
