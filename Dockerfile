@@ -1,24 +1,29 @@
 #Imagen de Ubuntu
 FROM ubuntu
+#Genero la etiqueta maintainer
 
-VOLUME /home/ceciliabaronio/ProyectoEntorno
+LABEL maintainer="Cecilia Baronio <baronio_cecilia@hotmail.com>"
+# Establezco el directorio de trabajo
+WORKDIR /home/ceciliabaronio/modificacion/proyecto
 
-#Instalamos los programas necesarios para la ejecucion
+#Instalo los programas necesarios para la ejecucion
 
-RUN apt-get update && apt-get install -y git wget zip imagemagick file
+RUN apt-get update && apt-get install -y \
+        git wget zip imagemagick file && \
+        rm -rf /var/lib/apt/lists/*
 
-#Agregamos los scripts 
+# Agrego los scripts necesarios y archivos 
+COPY menu.sh ./
+COPY  generar.sh ./
+COPY  descargar.sh ./
+COPY  descomprimir.sh ./
+COPY  procesar.sh ./
+COPY  miniaturas.sh ./
+COPY  comprimir.sh ./ 
+COPY nombres.csv ./
 
-ADD menu.sh /home/ceciliabaronio/ProyectoEntorno/menu.sh
-ADD generar.sh /home/ceciliabaronio/ProyectoEntorno/generar.sh
-ADD descargar.sh /home/ceciliabaronio/ProyectoEntorno/descargar.sh
-ADD descomprimir.sh /home/ceciliabaronio/ProyectoEntorno/descomprimir.sh
-ADD procesar.sh /home/ceciliabaronio/ProyectoEntorno/procesar.sh
-ADD comprimir.sh /home/ceciliabaronio/ProyectoEntorno/comprimir.sh
-ADD nombres.csv /home/ceciliabaronio/ProyectoEntorno/nombres.csv
+# Habilitar permisos de ejecución en los archivos .sh
+RUN chmod +x *.sh
 
-#Cambiamos la ubicacion de trabajo del Proyecto
-
-WORKDIR /home/ceciliabaronio/ProyectoEntorno
 #Ejecutamos el menu.sh
-CMD [ "bash", "/home/ceciliabaronio/ProyectoEntorno/menu.sh"]
+CMD [ "/bin/bash", "menu.sh"]
