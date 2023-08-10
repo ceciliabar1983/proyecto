@@ -1,4 +1,4 @@
-#TUIA - TP ENTORNO DE PROGRAMACION
+# TUIA - TP ENTORNO DE PROGRAMACION
 
 Baronio Cecilia Florencia
 
@@ -16,11 +16,11 @@ generar.sh
 
 Este script de permite generar imágenes aleatorias descargadas de "https://thispersondoesnotexist.com/"
 
-1°) Verifica si se ingresaron la cantidad de argumentos necesarios, si no se ingresan argumentos solicita que se ingrese la cantidad de imagenes a generar. 
-2°) Elimina el archivo imagenes.zip si el mismo existe. 
-3°) Elimina si existe y crea la carpeta imagenes donde se van a almacenar las imagenes generadas individualmente.
-4°) Descarga la lista de nombres de "https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/main/dict.csv" 
-5°) Se generan nombres aleatorios a partir del archivo nombres.csv, descargando las imágenes de "https://thispersondoesnotexist.com" utilizando esos nombres y almacenandolos en la carpeta ./imagenes. 
+1) Verifica si se ingresaron la cantidad de argumentos necesarios, si no se ingresan argumentos solicita que se ingrese la cantidad de imagenes a generar. 
+2) Elimina el archivo imagenes.zip si el mismo existe. 
+3) Elimina si existe y crea la carpeta imagenes donde se van a almacenar las imagenes generadas individualmente.
+4) Descarga la lista de nombres de "https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/main/dict.csv" 
+5) Se generan nombres aleatorios a partir del archivo nombres.csv, descargando las imágenes de "https://thispersondoesnotexist.com" utilizando esos nombres y almacenandolos en la carpeta ./imagenes. 
 Espera un intervalo de 2 segundos entre la descarga de una imagen y la siguiente. Por ej en la lista aparece Aaron Ariel, 126. Una vez seleccionado aleatoriamente el nombre elimina la coma y toma todo el nombre completo, luego reemplaza el espacio por guion bajo.
 6°) Comprime las imagenes contenidas en la carpeta imagenes
 7°) Genera la suma de verificacion de imagenes.zip.
