@@ -71,27 +71,11 @@ Creacion del Dockerfile.
 
 Una vez generado el contenido ejecutamos el siguiente comando:
 sudo docker build -t tpentorno /home/ceciliabaronio/ProyectoEntorno o bien sudo docker build -t tpentorno .
-Verificamos que se haya creado la imagen con el comando docker images , se creo una imagen con el nombre tpentorno con la ID b44b5005cf16
+Verificamos que se haya creado la imagen con el comando docker images , se creo una imagen con el nombre tpentorno con el ID  792154da9200
 Corremos el contenedor:
-sudo docker run -it -v /home/ceciliabaronio/:/ProyectoEntorno tpentorno
+sudo docker run -it -v /home/ceciliabaronio/:/modificacion/proyecto tpentorno
 
-Posteriormente en la pagina de docker hub, realizo el registro para poder generar un repositorio remoto:
-usuario:ceciliabaronio; contraseña:
-1)   En la terminal utilizo el comando "docker login" para poder acceder a docker hub
-2)   Creo un repositorio remoto llamado trabajoentorno en docker hub
-3)   Lo genero en la terminal: docker push ceciliabaronio/trabajoentorno:v.1
-4)   Creo una etiqueta para el repositorio
-5)   Genero la etiqueta en la consola: docker tag tpentorno ceciliabaronio/trabajoentorno:v.1
 
-Para poder ejecutar el contenedor desde cualquier ubicacion una opcion es: 
-crear la imagen  ejecutando:  sudo docker build -t tpentorno .
-Luego ejecutar la imagen:
-sudo docker run -it -v /ubicacion_ejecucion/:/home/ceciliabaronio/ProyectoEntorno tpentorno
-
-Otra opcion es ejecutar la imagen de docker hub:
-1) Hacer un pull de la imagen : sudo docker pull ceciliabaronio/trabajoentorno:v.1
-2) Ejecutar la imagen: sudo docker run -it -v /ubicacion_actual/:/home/ceciliabaronio/ceciliabaronio/trabajoentorno:v.1
-Se ejecutara el Docker mostrando el menu de opciones
 
 
 
