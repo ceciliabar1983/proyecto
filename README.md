@@ -27,7 +27,7 @@ Espera un intervalo de 2 segundos entre la descarga de una imagen y la siguiente
 
 #### descargar.sh
 
-Primeramente se pasan dos argumentos uno correspondiente a la url que contiene las imagenes comprimidas y otra a la suma de verificacion. Para generar la url, cargue los archivos en github, y modifique las url para que me descargue el archivo subido y no el contenido de la url.
+Primeramente se pasan dos argumentos uno correspondiente a la url que contiene las imagenes comprimidas y otra a la suma de verificacion. Para generar la url, cargue los archivos en github, y modifique las url para que me descargue el archivo subido y no el contenido de la url.        
 Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imagenes.zip  https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/suma_verificacion.txt 
 1) Verifica que se ingresen dos argumentos 
 2) Elimina los archivos imagenes.zip y suma_verificacion.txt 
@@ -42,7 +42,7 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 #### procesar.sh 
 1) Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas 
 2) Luego si existe la carpeta imagenes_descomprimidas, procede a iterar sobre los archivos que se encuentran en el directorio, tomando solo el nombre del archivo sin su ruta ni extension(jpg). 
-3)Verifica que el tipo de archivo sea una imagen, y procede a procesar las imagenes con nombres validos, es decir : que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
+3) Verifica que el tipo de archivo sea una imagen, y procede a procesar las imagenes con nombres validos, es decir : que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
 
 #### miniaturas.sh
 1. Verifico que el archivo imagenes.zip exista y la descomprimo en imagenes_descomprimidas_con_miniatura.
@@ -96,17 +96,18 @@ Les doy permiso de ejecucion a cada uno de los scripts.
 CMD [ "/bin/bash", "menu.sh"]        
 CMD está configurando el contenedor para que ejecute el script menu.sh usando el intérprete de comandos /bin/bash        
 
-Para poder ejecutar el menu desde cualquier ubicacion previamente es necesario hacer los siguientes pasos:
+### Para poder ejecutar el menu desde cualquier ubicacion previamente es necesario hacer los siguientes pasos:
 
-#Crear una carpeta en la ubicacion actual, por ej ceciliab1
-#Ir a esa carpeta, ej cd ceciliab1
-#Clonar el proyecto
-git clone https://github.com/ceciliabar1983/proyecto.git
-De esta manera podemos ejecutar el menu:
-./menu.sh
+#Crear una carpeta en la ubicacion actual, por ej ceciliab1        
+#Ir a esa carpeta, ej cd ceciliab1        
+#Clonar el proyecto        
+git clone https://github.com/ceciliabar1983/proyecto.git        
+De esta manera podemos ejecutar el menu:        
+./menu.sh        
 
-Para poder crear y ejecutar el Dockerfile:
+### Para poder crear y ejecutar el Dockerfile:
 
-Una vez generado el contenido ejecutamos el siguiente comando:  sudo docker build -t tpentorno . 
-Verificamos que se haya creado la imagen con el comando docker images , se creo una imagen con el nombre tpentorno con el ID 792154da9200 Corremos el contenedor: sudo docker run -it -v /home/ceciliabaronio/:/modificacion/proyecto tpentorno, en mi caso lo corri de esta manera pero es necesario cambiarlo con la ubicacion actual.
-Al ejecutarlo nos aparecera el menu de opciones que nos permiten ejecutar los scripts.
+1) Una vez generado el contenido ejecutamos el siguiente comando:  sudo docker build -t tpentorno .         
+2) Verificamos que se haya creado la imagen con el comando docker images.
+3) Corremos el contenedor: sudo docker run -it -v /home/ceciliabaronio/:/modificacion/proyecto tpentorno, en mi caso lo corri de esta manera pero es necesario cambiarlo con la ubicacion actual.
+4) Al ejecutarlo nos aparecera el menu de opciones que nos permiten ejecutar los scripts.
