@@ -4,7 +4,7 @@ FROM ubuntu
 
 LABEL maintainer="Cecilia Baronio <baronio_cecilia@hotmail.com>"
 # Establezco el directorio de trabajo
-WORKDIR /home/ceciliabaronio/modificacion/proyecto
+WORKDIR /proyecto
 
 #Instalo los programas necesarios para la ejecucion
 
