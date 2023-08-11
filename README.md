@@ -57,7 +57,7 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 3) Genera un archivo con los nombres de las imagenes procesadas que terminen en a 
 4) Crea un archivo comprimido con los archivos generados anteriormente eliminando lo que se comprimio.
 
-#### Un menu con los scripts anteriores:
+#### menu.sh :
 En el menu se ofrecen las opciones para poder ejecutar cada uno de los scripts:
 1. Generar
 2. Descargar
@@ -68,32 +68,32 @@ En el menu se ofrecen las opciones para poder ejecutar cada uno de los scripts:
 7. Salir
 
 
-### Creacion del Dockerfile.
+## Creacion del Dockerfile.
 
-FROM ubuntu        
+#### FROM ubuntu        
 Crea la imagen de ubuntu a partir de la ultima version        
-LABEL maintainer="Cecilia Baronio <baronio_cecilia@hotmail.com>"        
+#### LABEL maintainer="Cecilia Baronio <baronio_cecilia@hotmail.com>"        
 Crea una etiqueta con los datos del creador del archivo y la direccion de correo        
-WORKDIR /proyecto        
+#### WORKDIR /proyecto        
 Establece la ubicacion del directorio de trabajo,es decir, el directorio en el que se ejecutarán los comandos y se buscarán los archivos por defecto cuando el contenedor esté en funcionamiento.        
 Agregar actualización de la lista de paquetes antes de la instalación        
-RUN apt-get update && apt-get install -y \        
-        git wget zip imagemagick file && \        
-        rm -rf /var/lib/apt/lists/*        
+#### RUN apt-get update && apt-get install -y \        
+####     git wget zip imagemagick file && \        
+####     rm -rf /var/lib/apt/lists/*        
 Utilizo RUN apt-get update && apt-get install -y para garantizar que el Dockerfile instale las últimas versiones del paquete sin más codificación ni intervención manual. Instala en la segunda linea y actualiza los paquetes que se mencionan.        
 En la tercera linea se limpia el caché de apt eliminándolo,es decir, reduce el tamaño de la imagen, ya que el caché de apt no se almacena en una capa.         
-COPY menu.sh ./        
-COPY generar.sh ./        
-COPY descargar.sh ./        
-COPY descomprimir.sh ./        
-COPY procesar.sh ./        
-COPY miniaturas.sh ./        
-COPY comprimir.sh ./        
-COPY nombres.csv ./        
-Utilizo COPY ya que solo admite la copia básica de archivos locales en el contenedor, ya que son varios archivos que son necesarios copiar conviene hacerla la copia individualmente.        
-RUN chmod +x *.sh        
+#### COPY menu.sh ./        
+#### COPY generar.sh ./        
+#### COPY descargar.sh ./        
+#### COPY descomprimir.sh ./        
+#### COPY procesar.sh ./        
+#### COPY miniaturas.sh ./        
+#### COPY comprimir.sh ./        
+#### COPY nombres.csv ./        
+Utilizo COPY ya que solo admite la copia básica de archivos locales en el contenedor, como son varios archivos que son necesarios copiar conviene hacerla la copia individualmente.        
+#### RUN chmod +x *.sh        
 Les doy permiso de ejecucion a cada uno de los scripts.        
-CMD [ "/bin/bash", "menu.sh"]        
+#### CMD [ "/bin/bash", "menu.sh"]        
 CMD está configurando el contenedor para que ejecute el script menu.sh usando el intérprete de comandos /bin/bash        
 
 ### Para poder ejecutar el Dockerfile desde cualquier ubicacion  es necesario hacer los siguientes pasos:       
@@ -103,8 +103,9 @@ git clone https://github.com/ceciliabar1983/proyecto.git
    cd proyecto
 2) Construir el Dockerfile:        
     sudo docker build -t tpentorno .         
-2) Verificamos que se haya creado la imagen con el comando docker images.
-3) Corremos el contenedor:        
+2) Verificamos que se haya creado la imagen con el comando:        
+   docker images.
+4) Corremos el contenedor:        
    sudo docker run -it -v $(pwd):/proyecto tpentorno        
-   Este comando ejecuta un contenedor interactivo a partir de la imagen tpentorno con volumen,conectando una carpeta en el directorio actual con una carpeta dentro del contenedor con la ruta /proyecto.        
+   Este comando ejecuta un contenedor interactivo a partir de la imagen tpentorno con volumen,conectando una carpeta en el directorio actual con una carpeta dentro del contenedor con la ruta "/proyecto".        
 5) Al ejecutarlo nos aparecera el menu de opciones que nos permiten ejecutar los scripts.
