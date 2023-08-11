@@ -74,7 +74,7 @@ FROM ubuntu
 Crea la imagen de ubuntu a partir de la ultima version        
 LABEL maintainer="Cecilia Baronio <baronio_cecilia@hotmail.com>"        
 Crea una etiqueta con los datos del creador del archivo y la direccion de correo        
-WORKDIR /home/ceciliabaronio/modificacion/proyecto        
+WORKDIR /proyecto        
 Establece la ubicacion del directorio de trabajo,es decir, el directorio en el que se ejecutarán los comandos y se buscarán los archivos por defecto cuando el contenedor esté en funcionamiento.        
 Agregar actualización de la lista de paquetes antes de la instalación        
 RUN apt-get update && apt-get install -y \        
@@ -96,18 +96,15 @@ Les doy permiso de ejecucion a cada uno de los scripts.
 CMD [ "/bin/bash", "menu.sh"]        
 CMD está configurando el contenedor para que ejecute el script menu.sh usando el intérprete de comandos /bin/bash        
 
-### Para poder ejecutar el menu desde cualquier ubicacion previamente es necesario hacer los siguientes pasos:
-
-#Crear una carpeta en la ubicacion actual, por ej ceciliab1        
-#Ir a esa carpeta, ej cd ceciliab1        
-#Clonar el proyecto        
-git clone https://github.com/ceciliabar1983/proyecto.git        
-De esta manera podemos ejecutar el menu:        
-./menu.sh        
-
-### Para poder crear y ejecutar el Dockerfile:
-
-1) Una vez generado el contenido ejecutamos el siguiente comando:  sudo docker build -t tpentorno .         
+### Para poder ejecutar el Dockerfile desde cualquier ubicacion  es necesario hacer los siguientes pasos:       
+1)  Clonar el proyecto        
+git clone https://github.com/ceciliabar1983/proyecto.git         
+2) Ubicarse en el directorio que contiene el proyecto        
+   cd proyecto
+2) Construir el Dockerfile:        
+    sudo docker build -t tpentorno .         
 2) Verificamos que se haya creado la imagen con el comando docker images.
-3) Corremos el contenedor: sudo docker run -it -v /home/ceciliabaronio/:/modificacion/proyecto tpentorno, en mi caso lo corri de esta manera pero es necesario cambiarlo con la ubicacion actual.
-4) Al ejecutarlo nos aparecera el menu de opciones que nos permiten ejecutar los scripts.
+3) Corremos el contenedor:        
+   sudo docker run -it -v $(pwd):/proyecto tpentorno        
+   Este comando ejecuta un contenedor interactivo a partir de la imagen tpentorno con volumen,conectando una carpeta en el directorio actual con una carpeta dentro del contenedor con la ruta /proyecto.        
+5) Al ejecutarlo nos aparecera el menu de opciones que nos permiten ejecutar los scripts.
