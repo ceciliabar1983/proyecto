@@ -26,13 +26,17 @@ if [ $# -eq 2 ]; then
 	
 	suma_verificacion_imagenes_descargadas=$(cat suma_verificacion.txt) 
 
-#Verificamos que coincidan 
+	#Verificamos que coincidan 
 
 	if [ "$suma_verificacion_imagenes_generadas" == "$suma_verificacion_imagenes_descargadas" ] ; then
     		echo "La suma de verificación es correcta. Descarga exitosa."
+	# Elimino el archivo suma_verificacion.txt 
+		rm suma_verificacion.txt    
+		echo " Se elimino el archivo suma_verificacion.txt "
   	else
     		echo "Error: La suma de verificación no coincide. La descarga puede estar corrupta."
   	fi
-  	
+
+
 	
 fi
