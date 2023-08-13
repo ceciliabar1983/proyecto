@@ -59,10 +59,14 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 
 #### comprimir.sh
 
-1) Inicialmente verifico si existe el directorio, imagenes_descomprimidas/imagenes, si es asi veo el contenido de dicho directorio con el comando 'ls', aplico una tuberia a continuacion con el comando 'cut -d "." -f 1 ' para que solo me muestre el nombre de la imagen y no la extesion del archivo,( el comando toma en cuenta el separador punto y toma la primera columna) . El resultadoGenera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
-2) Genera un archivo con los nombres validos de las imagenes procesadas, que comiencen en mayuscula y sigan en minuscula
-3) Genera un archivo con los nombres de las imagenes procesadas que terminen en a 
-4) Crea un archivo comprimido con los archivos generados anteriormente eliminando lo que se comprimio.
+1) Inicialmente verifico si existe el directorio, imagenes_descomprimidas/imagenes, si es asi veo el contenido de dicho directorio con el comando 'ls', aplico una tuberia a continuacion con el comando 'cut -d "." -f 1 ' para que solo me muestre el nombre de la imagen y no la extesion del archivo,( el comando toma en cuenta el separador punto y toma la primera columna) . El resultado anterior se guarda en un archivo 'nombres_imagenes.txt'.
+2) Verifica si existe, imagenes_procesadas, si es asi, veo el contenido de la carpeta imagenes_procesadas con el comando 'ls',luego aplico una tuberia para poder obtener la informacion necesaria, de la siguiente manera:
+   cut -d '_' -f 1,2 toma en cuenta el separador guion bajo y toma el nombre y apellido
+   genera el archivo lista_de_nombres_validos.txt y emite el mensaje de que se genero el archivo .
+4)   Si existe el archivo lista_de_nombres_validos.txt, veo el contenido del archivo con el comando 'cat', aplico una tuberia para poder buscar los nombres que empiecen con mayusculas sigan con una o mas minusculas y guion bajo, siga con un segundo nombre o apellido,y terminen con a( grep -E '^[[:upper:]][[:lower:]_]+(_[[:upper:]][[:lower:]_]+)*[[:lower:]]*a$') .Luego al resultado le aplico otra tuberia para que me cuente las lineas que cumplen esta condicion (wc -l). El resultado de todo esto lo muestra en el archivo total_de_personas_finaliza_con_a.txt. Ademas me mmuestra el mensaje que se creo el archivo
+5)   Antes de proceder a comprimir los archivos generados, verifica que existan los mismos. En caso afirmativo genera el archivo comprimido  imagenesdefinitivas.zip incluyendo imagenes_descomprimidas imagenes_procesadas nombres_imagenes.txt lista_nombres_validos.txt total_personas_finaliza_con_a.txt. Me muestra el mensaje de que se comprieron los archivos
+6) Borra los archivos incluidos en el archivo comprimido imagenesdefinitivas.zip
+7) En caso de no encontrar los archivos : imagenes_descomprimidas imagenes_procesadas nombres_imagenes.txt lista_nombres_validos.txt total_personas_finaliza_con_a.txt. emite el mensaje informando que no se pudieron comprimir los archivos.
 
 #### menu.sh :
 En el menu se ofrecen las opciones para poder ejecutar cada uno de los scripts:
