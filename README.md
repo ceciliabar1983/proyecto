@@ -33,6 +33,7 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 2) Elimina los archivos imagenes.zip y suma_verificacion.txt 
 3) Descarga el contenido de las url pasadas como argumentos: el archivo suma_verificacion.txt contiene solo el hash SHA-256 del archivo imagenes.zip y no el nombre del archivo; por lo cual para generar la suma de verificacion de imagenes.zip debemos eliminar el espacio y tomar la primera columna. 
 4) Se realiza la comparacion de dichas sumas de verificacion
+5) Se elimina el archivo suma_verificacion.txt
 
 #### descomprimir.sh
 
