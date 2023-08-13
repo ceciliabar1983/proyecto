@@ -10,9 +10,9 @@ if [[ -f imagenes.zip ]]; then
 
         mkdir imagenes_descomprimidas
 # Descomprimir cada archivo dentro de imagenes.zip
-	for archivo in imagenes.zip/*; do	
-        	unzip imagenes.zip -d imagenes_descomprimidas
-	done
+		
+        unzip imagenes.zip -d imagenes_descomprimidas
+	
         echo "Se descomprimió correctamente."
         
        
