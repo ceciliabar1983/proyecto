@@ -37,8 +37,9 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 
 #### descomprimir.sh
 
-1) Verificamos que exista el archivo imagenes.zip; si es asi verificamos si existe la carpeta imagenes_descomprimidas si es asi la eliminamos y la volvemos a crear. 
-2) Descomprimos cada foto incluida en imagenes.zip y la guardamos en imagenes_descomprimidas.
+1) Verificamos que exista el archivo imagenes.zip
+2) En caso de existir,   si existe la carpeta imagenes_descomprimidas la elimino y la vuelvo a crear. 
+3) Descomprimo cada foto incluida en imagenes.zip y la guardo en imagenes_descomprimidas.
 
 #### procesar.sh 
 1) Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas 
@@ -46,10 +47,14 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 3) Verifica que el tipo de archivo sea una imagen, y procede a procesar las imagenes con nombres validos, es decir : que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
 
 #### miniaturas.sh
-1. Verifico que el archivo imagenes.zip exista y la descomprimo en imagenes_descomprimidas_con_miniatura.
-2. Creo la carpeta imagenes_procesadas_con_miniatura, la elimino si existe y la vuelvo a generar. 
-3. Modifico el tamaño de las imagenes que se encuentran en la carpeta imagenes_descomprimidas_con_miniatura al tamaño 48 x 48 y las guardo con el nombre de la imagen agregandole el texto con miniatura y la extension jpg en la carpeta imagenes_procesadas_con_miniaturas 
-4. Vuelvo a comprimir el contenido de la carpeta imagenes_procesadas_con_miniaturas
+1. Verifico que el archivo imagenes.zip exista, si es asi tambien verifico si existe la carpeta  imagenes_descomprimidas_con_miniaturas, la elimino, y muestro el mensaje por pantalla.
+2. Descomprimo imagenes.zip en imagenes_descomprimidas_con_miniatura.
+3. Verifico si existe la carpeta imagenes_procesadas_con_miniaturas, si es asi la elimino y muestro el mensaje por pantalla.
+4. Creo la carpeta imagenes_procesadas_con_miniatura.
+5. Modifico el tamaño de las imagenes que se encuentran en la carpeta imagenes_descomprimidas_con_miniatura al tamaño 48 x 48 y las guardo con el nombre de la imagen agregandole el texto con_miniatura y la extension jpg. Las guardo en la carpeta imagenes_procesadas_con_miniaturas y muestro el mensaje informando que se generaron las imagenes con miniaturas.
+6. Si existe la carpeta imagenes_procesadas_con_miniaturas,  comprimo el contenido de la carpeta en imagenes_procesadas_con_miniaturas.zip. Muestro el mensaje por pantalla si la comprension fue exitosa.
+7. Elimino los archivos y carpetas imagenes_procesadas_con_miniaturas imagenes_descomprimidas_con_miniaturas imagenes.zip.
+8. Sino se pudo realizar la comprension correctamente, muestro el mensaje por pantalla.
 
 #### comprimir.sh
 
