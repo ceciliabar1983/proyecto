@@ -7,13 +7,13 @@ if [ -d imagenes_descomprimidas/imagenes ] ; then
 fi
 # Generar una lista con los nombres válidos
 if [ -d imagenes_procesadas ] ; then
-	ls imagenes_procesadas |cut -d '_' -f 1,2 | cut -d '.' -f1  > lista_nombres_validos.txt
+	ls imagenes_procesadas | awk -F '_recortada' '{print $1}'> lista_nombres_validos.txt
 	echo " Se creo el archivo lista_nombres_validos.txt"
 fi
 # Generar archivo con el total de personas cuyo nombre finaliza con la letra 'a'
 if [ -f lista_nombres_validos.txt ]; then
 	cat lista_nombres_validos.txt | grep -E '^[[:upper:]][[:lower:]_]+(_[[:upper:]][[:lower:]_]+)*[[:lower:]]*a$' | wc -l > total_personas_finaliza_con_a.txt
-	echo " Se creo el archivo total_de_personas_finaliza_con_a.txt "	
+	echo " Se creo el archivo total__personas_finaliza_con_a.txt "	
 fi
 
 # Verificar si los archivos existen antes de crear el archivo comprimido
