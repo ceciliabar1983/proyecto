@@ -25,13 +25,13 @@ while true; do
             	source descomprimir.sh
            	;;
         4)
-           	 source procesar.sh
+           	source procesar.sh
             	;;
         5)
-            	source comprimir.sh
+            	source miniaturas.sh
             	;;
 	6) 
-	   	source miniaturas.sh
+	   	source comprimir.sh
 		;;
         7)
            	 echo "Saliendo..."
