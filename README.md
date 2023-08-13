@@ -42,6 +42,7 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 3) Descomprimo cada foto incluida en imagenes.zip y la guardo en imagenes_descomprimidas.
 
 #### procesar.sh 
+
 1) Primero creamos la carpeta imagenes_procesadas para poder guardar alli las imagenes recortadas 
 2) Luego si existe la carpeta imagenes_descomprimidas, procede a iterar sobre los archivos que se encuentran en el directorio, tomando solo el nombre del archivo sin su ruta ni extension(jpg). 
 3) Verifica que el tipo de archivo sea una imagen, y procede a procesar las imagenes con nombres validos, es decir : que comience con una letra mayúscula, seguido de una o más combinaciones de palabras separadas por guiones bajos; cada de palabra comienza con una letra mayúscula y está seguida por letras minúsculas y guiones bajos opcionales.
@@ -58,7 +59,7 @@ Por ejemplo: https://raw.githubusercontent.com/ceciliabar1983/proyecto/main/imag
 
 #### comprimir.sh
 
-1) Genera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
+1) Inicialmente verifico si existe el directorio, imagenes_descomprimidas/imagenes, si es asi veo el contenido de dicho directorio con el comando 'ls', aplico una tuberia a continuacion con el comando 'cut -d "." -f 1 ' para que solo me muestre el nombre de la imagen y no la extesion del archivo,( el comando toma en cuenta el separador punto y toma la primera columna) . El resultadoGenera un archivo con los nombres de las imagenes descomprimidas( nombres_imagenes.txt)
 2) Genera un archivo con los nombres validos de las imagenes procesadas, que comiencen en mayuscula y sigan en minuscula
 3) Genera un archivo con los nombres de las imagenes procesadas que terminen en a 
 4) Crea un archivo comprimido con los archivos generados anteriormente eliminando lo que se comprimio.
